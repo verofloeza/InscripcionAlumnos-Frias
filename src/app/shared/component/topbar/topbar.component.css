@@ -1,0 +1,12 @@
+.topbar{
+    height: var(--toolbar-height);
+    background-color: orange;
+    opacity: 0.8 ;
+}
+.topbar h1{
+    padding-top: 3px;
+    padding-left: 12px;
+    font-family:'Fasthand';
+    color:purple
+    
+}

@@ -1,0 +1,14 @@
+ul li{
+    list-style: none;
+    padding: 15px 0;
+    margin: -10px;
+}
+.menu{
+    text-decoration: none;
+    color: white;
+    font-style: italic;
+}
+.menu:hover{
+    color: orange;
+    font-size: 20px;
+}

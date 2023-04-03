@@ -1,0 +1,119 @@
+<div class="row">
+  <div class="col-8">
+    <h2 class="mb-5">Inscripcion alumnos</h2>
+    <form 
+      [formGroup]="inscripcionGroup"
+      (ngSubmit)="onSubmit()"
+      class="row g-3"
+    >
+        <div class="row">
+          <div class="col">
+            <input 
+              [formControl]="nombreControl" 
+              type="text" 
+              class="form-control" 
+              [ngClass]="{ 'is-invalid': nombreControl.invalid }"
+            >
+            <div class="invalid-feedback">El nombre es requerido</div>
+          </div>
+          <div class="col">
+            <input 
+              [formControl]="apellidoControl" 
+              type="text" 
+              class="form-control" 
+              [ngClass]="{ 'is-invalid': apellidoControl.invalid }"
+            >
+            <div class="invalid-feedback">El apellido es requerido</div>
+          </div>
+        </div>
+        <div class="row">
+            <div class="form-group col-md-6">
+              <label for="inputEmail4">Email</label>
+              <input 
+                [formControl]="emailControl" 
+                type="email" 
+                class="form-control" 
+                [ngClass]="{ 'is-invalid': emailControl.invalid }"
+              >
+              <div class="invalid-feedback">El email es requerido</div>
+            </div>
+            <div class="form-group col-md-6">
+              <label for="inputPassword4">Fecha de Nacimiento</label>
+              <input 
+                [formControl]="nacimientoControl" 
+                type="text" 
+                class="form-control" 
+              >
+            </div>
+          </div>
+          <ng-container formGroupName="localizacion">
+            <div class="row">
+              <div class="form-group" >
+                <label for="inputAddress">Dirección</label>
+                <input 
+                  formControlName="direccion" 
+                  type="text" class="form-control" 
+                >
+              </div>
+            </div>
+            
+            <div class="form-row row">
+              <div class="form-group col-md-6">
+                <label for="inputCity">Ciudad</label>
+                <input 
+                  formControlName="ciudad" 
+                  type="text" 
+                  class="form-control"
+                >
+              </div>
+              <div class="form-group col-md-4">
+                <label for="validationCustom04" class="form-label">Provincia</label>
+                <select 
+                  class="form-select" 
+                  formControlName="provincia"
+                >
+                  <option selected value="">Elegir...</option>
+                  <option>Buenos Aires</option>
+                  <option>Entre Ríos</option>
+                  <option>Santa Fe</option>
+                </select>
+              </div>
+              <div class="form-group col-md-2">
+                <label for="inputZip">Cod. Postal</label>
+                <input 
+                  formControlName="cp" 
+                  type="text" 
+                  class="form-control"
+                >
+              </div>
+            </div>
+          </ng-container>
+          
+          <div class="row mt-5">
+            <button type="submit" class="btn btn-primary">Registrarse </button>
+          </div>
+          
+      </form>
+  </div>
+  <div class="col-4">
+    <h3>JSON</h3>
+
+    <pre>{{ inscripcionGroup.value | json }}</pre>
+
+    <hr>
+
+    <h3>Errores</h3>
+
+    <h6>CONTROL NOMBRE</h6>
+    <pre>{{ nombreControl.errors | json }}</pre>
+
+    <h6>CONTROL APELLIDO</h6>
+    <pre>{{ apellidoControl.errors | json }}</pre>
+
+    <h6>CONTROL EMAIL</h6>
+    <pre>{{ emailControl.errors | json }}</pre>
+
+  </div>
+</div>
+
+
